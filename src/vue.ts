@@ -1,8 +1,10 @@
 import pluginVue from "eslint-plugin-vue";
 
+import { config } from "./config.js";
+
 export { default as vueParser } from "vue-eslint-parser";
 
-export const vue = [
+export const vue = config(
   ...pluginVue.configs["flat/recommended"],
 
   {
@@ -75,5 +77,5 @@ export const vue = [
       "vue/html-comment-indent": "error",
       "vue/sort-keys": "error",
     },
-  },
-];
+  }
+);

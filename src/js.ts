@@ -2,7 +2,9 @@ import jsConfig from "@eslint/js";
 import { rules } from "eslint-plugin-import";
 import prettierRecommended from "eslint-plugin-prettier/recommended";
 
-const jsCommonConfig = [
+import { config } from "./config.js";
+
+const jsCommonConfig = config(
   {
     plugins: {
       import: { rules },
@@ -79,11 +81,11 @@ const jsCommonConfig = [
       "@typescript-eslint/no-var-requires": "off",
       "import/no-commonjs": "off",
     },
-  },
-];
+  }
+);
 
-export const js = [
+export const js = config(
   jsConfig.configs.recommended,
   ...jsCommonConfig,
-  prettierRecommended,
-];
+  prettierRecommended
+);

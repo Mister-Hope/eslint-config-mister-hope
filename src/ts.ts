@@ -2,11 +2,13 @@ import { createRequire } from "node:module";
 
 import { configs, parser } from "typescript-eslint";
 
+import { config } from "./config.js";
+
 const require = createRequire(import.meta.url);
 
 export const tsParser = parser;
 
-export const ts = [
+export const ts = config(
   ...configs.recommendedTypeChecked,
   ...configs.stylisticTypeChecked,
 
@@ -80,5 +82,5 @@ export const ts = [
   {
     files: ["**/*.{cjs,js.mjs}"],
     ...configs.disableTypeChecked,
-  },
-];
+  }
+);
