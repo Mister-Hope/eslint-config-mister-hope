@@ -1,4 +1,5 @@
 declare module "eslint-plugin-import" {
+  export const configs: Record<string, any>;
   export const rules: any;
 }
 

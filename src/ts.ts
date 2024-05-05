@@ -1,30 +1,34 @@
 import { createRequire } from "node:module";
 
-import { configs, parser } from "typescript-eslint";
+import { configs as importConfigs } from "eslint-plugin-import";
+import { configs as tsConfigs } from "typescript-eslint";
 
 import { config } from "./config.js";
 
 const require = createRequire(import.meta.url);
 
-export const tsParser = parser;
+export { parser as tsParser } from "typescript-eslint";
 
 export const ts = config(
-  ...configs.recommendedTypeChecked,
-  ...configs.stylisticTypeChecked,
+  ...tsConfigs.recommendedTypeChecked,
+  ...tsConfigs.stylisticTypeChecked,
 
   {
     files: ["**/*.ts"],
     settings: {
+      ...importConfigs.typescript.settings,
       "import/parsers": {
         [require.resolve("@typescript-eslint/parser")]: [".ts"],
       },
       "import/resolver": {
         typescript: {
-          alwaysTryTypes: true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
+          alwaysTryTypes: true,
         },
       },
     },
     rules: {
+      ...importConfigs.typescript.rules,
+
       "@typescript-eslint/consistent-type-imports": "warn",
       "@typescript-eslint/explicit-function-return-type": [
         "warn",
@@ -81,6 +85,6 @@ export const ts = config(
 
   {
     files: ["**/*.{cjs,js.mjs}"],
-    ...configs.disableTypeChecked,
+    ...tsConfigs.disableTypeChecked,
   }
 );

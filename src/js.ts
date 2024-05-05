@@ -1,10 +1,10 @@
 import jsConfig from "@eslint/js";
-import { rules } from "eslint-plugin-import";
-import prettierRecommended from "eslint-plugin-prettier/recommended";
+import { configs, rules } from "eslint-plugin-import";
 
 import { config } from "./config.js";
 
-const jsCommonConfig = config(
+export const js = config(
+  jsConfig.configs.recommended,
   {
     plugins: {
       import: { rules },
@@ -40,20 +40,14 @@ const jsCommonConfig = config(
         },
       ],
 
+      ...configs.recommended.rules,
       "import/consistent-type-specifier-style": ["error", "prefer-top-level"],
-      "import/default": "error",
-      "import/export": "error",
       "import/first": "error",
       "import/newline-after-import": "error",
-      "import/named": "error",
-      "import/namespace": "error",
       "import/no-commonjs": "error",
       "import/no-cycle": "error",
       "import/no-duplicates": ["error", { considerQueryString: true }],
       "import/no-named-default": "error",
-      "import/no-named-as-default": "error",
-      "import/no-named-as-default-member": "error",
-      "import/no-unresolved": "error",
       "import/order": [
         "error",
         {
@@ -72,6 +66,13 @@ const jsCommonConfig = config(
           "newlines-between": "always",
         },
       ],
+
+      // eslint-plugin-import is not fully compatible with flat config
+      "import/default": "off",
+      "import/namespace": "off",
+      "import/no-named-as-default": "off",
+      "import/no-named-as-default-member": "off",
+      "import/no-unresolved": "off",
     },
   },
 
@@ -82,10 +83,4 @@ const jsCommonConfig = config(
       "import/no-commonjs": "off",
     },
   }
-);
-
-export const js = config(
-  jsConfig.configs.recommended,
-  ...jsCommonConfig,
-  prettierRecommended
 );

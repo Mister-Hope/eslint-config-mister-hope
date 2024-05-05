@@ -43,6 +43,7 @@ export const vue = config(
       "vue/require-name-property": "error",
       "vue/require-prop-comment": "error",
       "vue/script-indent": "error",
+      "vue/singleline-html-element-content-newline": "off",
       "vue/static-class-names-order": "error",
       "vue/v-for-delimiter-style": "error",
     },
