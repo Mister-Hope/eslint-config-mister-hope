@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-mister-hope",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "eslint plugin for hope",
   "keywords": [
     "markdown-it",
@@ -9,6 +9,10 @@
   ],
   "type": "module",
   "exports": {
+    ".": {
+      "type": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    },
     "./globals": {
       "type": "./lib/globals.d.ts",
       "default": "./lib/globals.js"
