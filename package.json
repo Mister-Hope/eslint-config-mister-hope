@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-mister-hope",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "eslint plugin for hope",
   "keywords": [
     "markdown-it",
@@ -47,8 +47,8 @@
     "@eslint/js": "^8.57.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-import-resolver-typescript": "^3.6.1",
-    "eslint-plugin-import": "2.29.1",
-    "eslint-plugin-prettier": "5.1.3",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-prettier": "^5.1.3",
     "eslint-plugin-vitest": "^0.5.4",
     "globals": "^15.1.0",
     "typescript-eslint": "^7.8.0"
