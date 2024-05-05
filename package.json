@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-mister-hope",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "eslint plugin for hope",
   "keywords": [
     "markdown-it",
