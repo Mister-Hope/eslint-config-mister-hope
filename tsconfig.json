@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "lib": ["ESNext"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "target": "ES2022",
+    "declaration": true,
+    "rootDir": "./src",
+    "outDir": "./lib"
+  },
+  "include": ["src/*.ts"]
+}
