@@ -84,7 +84,7 @@ export const ts = config(
   },
 
   {
-    files: ["**/*.{cjs,js,mjs}"],
+    files: ["**/*.{cjs,js,mjs,jsx}"],
     ...tsConfigs.disableTypeChecked,
   }
 );
