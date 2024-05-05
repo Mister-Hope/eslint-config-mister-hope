@@ -1,0 +1,71 @@
+{
+  "name": "eslint-config-hope",
+  "version": "0.0.1",
+  "description": "eslint plugin for hope",
+  "keywords": [
+    "markdown-it",
+    "markdown-it-plugin",
+    "abbr"
+  ],
+  "type": "module",
+  "exports": {
+    "./globals": {
+      "type": "./lib/globals.d.ts",
+      "default": "./lib/globals.js"
+    },
+    "./js": {
+      "type": "./lib/js.d.ts",
+      "default": "./lib/js.js"
+    },
+    "./ts": {
+      "type": "./lib/ts.d.ts",
+      "default": "./lib/ts.js"
+    },
+    "./vitest": {
+      "type": "./lib/vitest.d.ts",
+      "default": "./lib/vitest.js"
+    },
+    "./vue": {
+      "type": "./lib/vue.d.ts",
+      "default": "./lib/vue.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "tsc",
+    "clean": "rimraf ./lib"
+  },
+  "dependencies": {
+    "@eslint/js": "^8.57.0",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "2.29.1",
+    "eslint-plugin-prettier": "5.1.3",
+    "eslint-plugin-vitest": "^0.5.4",
+    "globals": "^15.1.0",
+    "typescript-eslint": "^7.8.0"
+  },
+  "peerDependencies": {
+    "eslint": "^8.57.0",
+    "eslint-plugin-vue": "^9.25.0",
+    "vue-eslint-parser": "^9.4.2"
+  },
+  "peerDependenciesMeta": {
+    "eslint-plugin-vue": {
+      "optional": true
+    },
+    "vue-eslint-parser": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/eslint__js": "8.42.3",
+    "@types/node": "20.12.8",
+    "rimraf": "5.0.5",
+    "typescript": "5.4.5"
+  },
+  "packageManager": "pnpm@9.0.6",
+  "publishConfig": {
+    "access": "public"
+  }
+}
