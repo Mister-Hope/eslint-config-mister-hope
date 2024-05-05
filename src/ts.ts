@@ -6,13 +6,10 @@ const require = createRequire(import.meta.url);
 
 export const tsParser = parser;
 
-export const tsTypeChecked = [
+export const ts = [
   ...configs.recommendedTypeChecked,
   ...configs.stylisticTypeChecked,
-  {
-    files: ["**/*.{cjs,js.mjs}"],
-    ...configs.disableTypeChecked,
-  },
+
   {
     files: ["**/*.ts"],
     settings: {
@@ -78,5 +75,10 @@ export const tsTypeChecked = [
         { allowSingleElementEquality: "always" },
       ],
     },
+  },
+
+  {
+    files: ["**/*.{cjs,js.mjs}"],
+    ...configs.disableTypeChecked,
   },
 ];

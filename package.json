@@ -33,7 +33,8 @@
   },
   "scripts": {
     "build": "tsc",
-    "clean": "rimraf ./lib"
+    "clean": "rimraf ./lib",
+    "prepublish": "pnpm build"
   },
   "dependencies": {
     "@eslint/js": "^8.57.0",

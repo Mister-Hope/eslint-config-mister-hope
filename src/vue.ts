@@ -45,6 +45,7 @@ export const vue = [
       "vue/v-for-delimiter-style": "error",
     },
   },
+
   {
     files: ["**/*.vue"],
     rules: {
