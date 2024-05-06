@@ -17,6 +17,10 @@
       "type": "./lib/globals.d.ts",
       "default": "./lib/globals.js"
     },
+    "./import": {
+      "type": "./lib/import.d.ts",
+      "default": "./lib/import.js"
+    },
     "./js": {
       "type": "./lib/js.d.ts",
       "default": "./lib/js.js"

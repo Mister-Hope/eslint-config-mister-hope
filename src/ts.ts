@@ -1,12 +1,8 @@
-import { createRequire } from "node:module";
-
-import { configs as importConfigs } from "eslint-plugin-import";
 import { configs as tsConfigs } from "typescript-eslint";
 
 import { config } from "./config.js";
 
-const require = createRequire(import.meta.url);
-
+export { configs as tsConfigs } from "typescript-eslint";
 export { parser as tsParser } from "typescript-eslint";
 
 export const ts = config(
@@ -15,21 +11,8 @@ export const ts = config(
 
   {
     files: ["**/*.ts"],
-    settings: {
-      ...importConfigs.typescript.settings,
-      "import/parsers": {
-        [require.resolve("@typescript-eslint/parser")]: [".ts"],
-      },
-      "import/resolver": {
-        typescript: {
-          alwaysTryTypes: true,
-        },
-      },
-    },
     rules: {
-      ...importConfigs.typescript.rules,
-
-      "@typescript-eslint/consistent-type-imports": "warn",
+      "@typescript-eslint/consistent-type-imports": "error",
       "@typescript-eslint/explicit-function-return-type": [
         "warn",
         {
@@ -77,14 +60,14 @@ export const ts = config(
       "@typescript-eslint/no-unsafe-member-access": "warn",
       "@typescript-eslint/prefer-nullish-coalescing": "warn",
       "@typescript-eslint/prefer-string-starts-ends-with": [
-        "error",
+        "warn",
         { allowSingleElementEquality: "always" },
       ],
     },
   },
 
   {
-    files: ["**/*.{cjs,js,mjs,jsx}"],
+    files: ["**/*.{js,cjs,mjs,jsx}"],
     ...tsConfigs.disableTypeChecked,
   }
 );
