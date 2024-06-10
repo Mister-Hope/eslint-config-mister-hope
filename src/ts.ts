@@ -1,4 +1,4 @@
-import { configs as tsConfigs } from "typescript-eslint";
+import { configs as tsConfigs, plugin } from "typescript-eslint";
 
 import { config } from "./config.js";
 
@@ -11,6 +11,9 @@ export const ts = config(
 
   {
     files: ["**/*.ts"],
+    plugins: {
+      "@typescript-eslint": plugin,
+    },
     rules: {
       "@typescript-eslint/consistent-type-imports": "error",
       "@typescript-eslint/explicit-function-return-type": [

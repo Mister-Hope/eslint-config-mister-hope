@@ -1,65 +1,53 @@
 import { createRequire } from "node:module";
 
-import { configs as importConfigs, rules } from "eslint-plugin-import";
+import { FlatCompat } from "@eslint/eslintrc";
+import pluginImportX from "eslint-plugin-import-x";
 import { config } from "./config.js";
 
-export { configs as importConfigs } from "eslint-plugin-import";
+const compat = new FlatCompat();
 
 const require = createRequire(import.meta.url);
 
-const commonRules = {
-  "sort-imports": [
-    "error",
-    {
-      allowSeparatedGroups: false,
-      ignoreDeclarationSort: true,
-    },
-  ],
-
-  ...importConfigs.recommended.rules,
-  "import/consistent-type-specifier-style": ["error", "prefer-top-level"],
-  "import/first": "error",
-  "import/newline-after-import": "error",
-  "import/no-commonjs": "error",
-  "import/no-cycle": "error",
-  "import/no-duplicates": ["error", { considerQueryString: true }],
-  "import/no-named-default": "error",
-  "import/order": [
-    "error",
-    {
-      alphabetize: {
-        order: "asc",
-        orderImportKind: "asc",
-      },
-      groups: [
-        "builtin",
-        "external",
-        "internal",
-        ["parent", "sibling"],
-        "index",
-        "object",
-      ],
-      "newlines-between": "always",
-    },
-  ],
-
-  // FIXME: eslint-plugin-import is not fully compatible with flat config
-  "import/default": "off",
-  "import/namespace": "off",
-  "import/no-named-as-default": "off",
-  "import/no-named-as-default-member": "off",
-  "import/no-unresolved": "off",
-};
-
 export const jsImport = config(
+  ...compat.config(pluginImportX.configs.recommended),
+
   {
     files: ["**/*.{js,cjs,mjs,jsx}"],
+    rules: {
+      "sort-imports": [
+        "error",
+        {
+          allowSeparatedGroups: false,
+          ignoreDeclarationSort: true,
+        },
+      ],
 
-    plugins: {
-      import: { rules },
+      "import-x/consistent-type-specifier-style": ["error", "prefer-top-level"],
+      "import-x/first": "error",
+      "import-x/newline-after-import": "error",
+      "import-x/no-commonjs": "error",
+      "import-x/no-cycle": "error",
+      "import-x/no-duplicates": ["error", { considerQueryString: true }],
+      "import-x/no-named-default": "error",
+      "import-x/order": [
+        "error",
+        {
+          alphabetize: {
+            order: "asc",
+            orderImportKind: "asc",
+          },
+          groups: [
+            "builtin",
+            "external",
+            "internal",
+            ["parent", "sibling"],
+            "index",
+            "object",
+          ],
+          "newlines-between": "always",
+        },
+      ],
     },
-
-    rules: commonRules,
   },
 
   {
@@ -71,19 +59,16 @@ export const jsImport = config(
 );
 
 export const tsImport = config(
+  ...compat.config(pluginImportX.configs.typescript),
   {
     files: ["**/*.ts"],
 
-    plugins: {
-      import: { rules },
-    },
-
     settings: {
-      ...importConfigs.typescript.settings,
-      "import/parsers": {
+      "import-x/parsers": {
         [require.resolve("@typescript-eslint/parser")]: [".ts"],
       },
       "import/resolver": {
+        node: true,
         typescript: {
           alwaysTryTypes: true,
         },
@@ -91,8 +76,39 @@ export const tsImport = config(
     },
 
     rules: {
-      ...commonRules,
-      ...importConfigs.typescript.rules,
+      "sort-imports": [
+        "error",
+        {
+          allowSeparatedGroups: false,
+          ignoreDeclarationSort: true,
+        },
+      ],
+
+      "import-x/consistent-type-specifier-style": ["error", "prefer-top-level"],
+      "import-x/first": "error",
+      "import-x/newline-after-import": "error",
+      "import-x/no-commonjs": "error",
+      "import-x/no-cycle": "error",
+      "import-x/no-duplicates": ["error", { considerQueryString: true }],
+      "import-x/no-named-default": "error",
+      "import-x/order": [
+        "error",
+        {
+          alphabetize: {
+            order: "asc",
+            orderImportKind: "asc",
+          },
+          groups: [
+            "builtin",
+            "external",
+            "internal",
+            ["parent", "sibling"],
+            "index",
+            "object",
+          ],
+          "newlines-between": "always",
+        },
+      ],
     },
   },
 
