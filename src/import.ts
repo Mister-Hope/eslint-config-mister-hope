@@ -2,6 +2,7 @@ import { createRequire } from "node:module";
 
 import { FlatCompat } from "@eslint/eslintrc";
 import pluginImportX from "eslint-plugin-import-x";
+
 import { config } from "./config.js";
 
 const compat = new FlatCompat();
@@ -55,7 +56,7 @@ export const jsImport = config(
     rules: {
       "import/no-commonjs": "off",
     },
-  }
+  },
 );
 
 export const tsImport = config(
@@ -67,7 +68,7 @@ export const tsImport = config(
       "import-x/parsers": {
         [require.resolve("@typescript-eslint/parser")]: [".ts"],
       },
-      "import/resolver": {
+      "import-x/resolver": {
         node: true,
         typescript: {
           alwaysTryTypes: true,
@@ -117,5 +118,5 @@ export const tsImport = config(
     rules: {
       "@typescript-eslint/no-var-requires": "off",
     },
-  }
+  },
 );

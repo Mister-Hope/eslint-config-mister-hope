@@ -1,3 +1,3 @@
-import pluginTs from 'typescript-eslint'
+import type { Linter } from "eslint";
 
-export const config = pluginTs.config;
+export const config = (...configs: Linter.Config[]): Linter.Config[] => configs;

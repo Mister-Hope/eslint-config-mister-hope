@@ -113,5 +113,5 @@ export const vue = config(
       "vue/static-class-names-order": "error",
       "vue/v-for-delimiter-style": "error",
     },
-  }
+  },
 );
