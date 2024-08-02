@@ -10,8 +10,9 @@ export default config(
       ecmaVersion: "latest",
       sourceType: "module",
       parserOptions: {
-        tsconfigDirName: import.meta.dirname,
-        project: "./tsconfig.eslint.json",
+        projectService: {
+          allowDefaultProject: ["eslint.config.js"],
+        },
       },
     },
   },
