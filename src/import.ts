@@ -54,7 +54,7 @@ export const jsImport = config(
   {
     files: ["**/*.cjs"],
     rules: {
-      "import/no-commonjs": "off",
+      "import-x/no-commonjs": "off",
     },
   },
 );
