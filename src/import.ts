@@ -116,7 +116,7 @@ export const tsImport = config(
   {
     files: ["**/*.cjs"],
     rules: {
-      "@typescript-eslint/no-var-requires": "off",
+      "@typescript-eslint/no-require-imports": "off",
     },
   },
 );
