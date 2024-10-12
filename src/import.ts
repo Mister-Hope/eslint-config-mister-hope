@@ -1,16 +1,13 @@
 import { createRequire } from "node:module";
 
-import { FlatCompat } from "@eslint/eslintrc";
-import pluginImportX from "eslint-plugin-import-x";
+import eslintPluginImportX from "eslint-plugin-import-x";
 
 import { config } from "./config.js";
-
-const compat = new FlatCompat();
 
 const require = createRequire(import.meta.url);
 
 export const jsImport = config(
-  ...compat.config(pluginImportX.configs.recommended),
+  eslintPluginImportX.flatConfigs.recommended,
 
   {
     files: ["**/*.{js,cjs,mjs,jsx}"],
@@ -60,7 +57,7 @@ export const jsImport = config(
 );
 
 export const tsImport = config(
-  ...compat.config(pluginImportX.configs.typescript),
+  eslintPluginImportX.flatConfigs.typescript,
   {
     files: ["**/*.ts"],
 

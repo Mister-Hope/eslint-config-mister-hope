@@ -1,4 +1,4 @@
-import defaultConfig, { config } from "./lib/index.js";
+import defaultConfig, { config } from "./src/index.js";
 
 export default config(
   ...defaultConfig,
@@ -11,7 +11,7 @@ export default config(
       sourceType: "module",
       parserOptions: {
         projectService: {
-          allowDefaultProject: ["eslint.config.js"],
+          allowDefaultProject: ["eslint.config.ts"],
         },
       },
     },
