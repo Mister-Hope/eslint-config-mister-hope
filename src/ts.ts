@@ -1,4 +1,3 @@
-import type { ESLint, Linter } from "eslint";
 import { plugin, configs as tsConfigs } from "typescript-eslint";
 
 import { config } from "./config.js";
@@ -7,13 +6,13 @@ export { configs as tsConfigs } from "typescript-eslint";
 export { parser as tsParser } from "typescript-eslint";
 
 export const ts = config(
-  ...(tsConfigs.recommendedTypeChecked as Linter.Config[]),
-  ...(tsConfigs.stylisticTypeChecked as Linter.Config[]),
+  ...tsConfigs.strictTypeChecked,
+  ...tsConfigs.stylisticTypeChecked,
 
   {
-    files: ["**/*.ts"],
+    files: ["**/*.ts", "**/*.cts", "**/*.mts"],
     plugins: {
-      "@typescript-eslint": plugin as ESLint.Plugin,
+      "@typescript-eslint": plugin,
     },
     rules: {
       "@typescript-eslint/consistent-type-imports": "error",
@@ -72,6 +71,6 @@ export const ts = config(
 
   {
     files: ["**/*.{js,cjs,mjs,jsx}"],
-    ...(tsConfigs.disableTypeChecked as Linter.Config),
+    ...tsConfigs.disableTypeChecked,
   },
 );

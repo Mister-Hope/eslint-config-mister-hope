@@ -1,6 +1,8 @@
 import pluginVitest from "@vitest/eslint-plugin";
 
-export const vitest = {
+import { config } from "./config.js";
+
+export const vitest = config({
   files: ["**/__tests__/**/*.spec.{j,t}s"],
   ...pluginVitest.configs.recommended,
-};
+});
