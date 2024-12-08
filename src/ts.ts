@@ -71,7 +71,7 @@ export const ts = config(
       ],
       "@typescript-eslint/restrict-template-expressions": [
         "error",
-        { allowNumber: true },
+        { allowBoolean: true, allowNumber: true },
       ],
     },
   },
