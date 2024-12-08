@@ -64,7 +64,14 @@ export const ts = config(
       // FIXME: https://github.com/typescript-eslint/typescript-eslint/issues/8113
       "@typescript-eslint/no-invalid-void-type": "off",
       "@typescript-eslint/no-unsafe-member-access": "warn",
-      "@typescript-eslint/prefer-nullish-coalescing": "warn",
+      "@typescript-eslint/prefer-nullish-coalescing": [
+        "warn",
+        {
+          ignoreBooleanCoercion: true,
+          ignoreConditionalTests: true,
+          ignoreMixedLogicalExpressions: true,
+        },
+      ],
       "@typescript-eslint/prefer-string-starts-ends-with": [
         "warn",
         { allowSingleElementEquality: "always" },
