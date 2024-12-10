@@ -59,10 +59,19 @@ export const ts = config(
           format: ["PascalCase"],
         },
       ],
+      "@typescript-eslint/no-confusing-void-expression": [
+        "error",
+        {
+          ignoreArrowShorthand: true,
+          ignoreVoidOperator: true,
+          ignoreVoidReturningFunctions: true,
+        },
+      ],
       "@typescript-eslint/no-dynamic-delete": "off",
       "@typescript-eslint/no-explicit-any": ["warn", { ignoreRestArgs: true }],
       // FIXME: https://github.com/typescript-eslint/typescript-eslint/issues/8113
       "@typescript-eslint/no-invalid-void-type": "off",
+      "@typescript-eslint/no-non-null-assertion": "warn",
       "@typescript-eslint/no-unsafe-member-access": "warn",
       "@typescript-eslint/prefer-nullish-coalescing": [
         "warn",
