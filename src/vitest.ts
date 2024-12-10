@@ -8,7 +8,7 @@ export const vitest = config(
     ...pluginVitest.configs.recommended,
   },
   {
-    files: ["**/*.spec.ts"],
+    files: ["**/*.spec.ts", "**/*.spec-d.ts"],
     rules: {
       "@typescript-eslint/no-empty-function": "off",
       "@typescript-eslint/no-explicit-any": "off",
