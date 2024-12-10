@@ -73,6 +73,11 @@ export const ts = config(
       "@typescript-eslint/no-invalid-void-type": "off",
       "@typescript-eslint/no-non-null-assertion": "warn",
       "@typescript-eslint/no-unsafe-member-access": "warn",
+      "@typescript-eslint/no-unnecessary-condition": [
+        "error",
+        { allowConstantLoopConditions: true },
+      ],
+
       "@typescript-eslint/prefer-nullish-coalescing": [
         "warn",
         {
