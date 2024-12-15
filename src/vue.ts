@@ -1,6 +1,7 @@
 import pluginVue from "eslint-plugin-vue";
 
 import { config } from "./config.js";
+import { tsRules } from "./ts.js";
 
 export { default as vueParser } from "vue-eslint-parser";
 
@@ -10,6 +11,7 @@ export const vue = config(
   {
     files: ["**/*.{ts,vue}"],
     rules: {
+      ...tsRules,
       "vue/custom-event-name-casing": "error",
       "vue/match-component-file-name": "error",
       "vue/match-component-import-name": "error",
