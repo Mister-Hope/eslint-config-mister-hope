@@ -11,7 +11,6 @@ export const vue = config(
   {
     files: ["**/*.{ts,vue}"],
     rules: {
-      ...tsRules,
       "vue/custom-event-name-casing": "error",
       "vue/match-component-file-name": "error",
       "vue/match-component-import-name": "error",
@@ -54,6 +53,7 @@ export const vue = config(
   {
     files: ["**/*.vue"],
     rules: {
+      ...tsRules,
       "vue/block-lang": [
         "error",
         {
