@@ -4,7 +4,7 @@ import { config } from "./config.js";
 
 export const js = config(jsConfig.configs.recommended, {
   rules: {
-    curly: ["error", "multi", "consistent"],
+    curly: ["error", "multi-line", "consistent"],
     "no-duplicate-imports": "off",
     "no-unmodified-loop-condition": "error",
     "padding-line-between-statements": [
