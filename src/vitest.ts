@@ -13,6 +13,11 @@ export const vitest = (overrides?: Rules): FlatConfig[] =>
         "**/*.{spec,test}.{js,jsx,ts,tsx}",
         "**/*.{spec,test}-d.{js,jsx,ts,tsx}",
       ],
+      settings: {
+        vitest: {
+          typecheck: true,
+        },
+      },
       ...rest,
       rules: {
         ...rules,
