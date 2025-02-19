@@ -10,7 +10,7 @@ export const js = (overrides?: Rules): FlatConfig[] =>
       name: "hope/js/rules",
       rules: {
         curly: ["error", "multi-line", "consistent"],
-        "no-console": "error",
+        "no-console": "warn",
         "no-duplicate-imports": "off",
         "no-unmodified-loop-condition": "error",
         "padding-line-between-statements": [

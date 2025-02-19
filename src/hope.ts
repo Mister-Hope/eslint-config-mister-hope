@@ -3,18 +3,19 @@ import type {
   BaseOptions,
   FlatConfig,
   IgnoresOptions,
-  Rules,
+  LanguageOptions,
 } from "./helpers.js";
 import { ignores } from "./ignores.js";
 import { js } from "./js.js";
 import { jsImport } from "./jsImport.js";
 import { prettier } from "./prettier.js";
-import { ts } from "./ts.js";
+import { ts, tsParser } from "./ts.js";
 import { tsImport } from "./tsImport.js";
 import { vitest } from "./vitest.js";
 
 export interface HopeOptions {
   ignores?: IgnoresOptions;
+  languageOptions?: LanguageOptions;
   /**
    * @default true
    */
@@ -42,11 +43,15 @@ export interface HopeOptions {
   vitest?: BaseOptions;
 }
 
-const getOptions = (option?: BaseOptions): Rules =>
-  typeof option === "object" ? option : {};
+const getOptions = <T>(
+  option?: T,
+): T extends boolean ? Record<never, never> : Exclude<T, boolean> =>
+  (typeof option === "object" ? option : {}) as T extends boolean
+    ? Record<never, never>
+    : Exclude<T, boolean>;
 
 export const hope = (
-  options: HopeOptions,
+  { languageOptions = {}, ...options }: HopeOptions,
   ...extraConfigs: FlatConfig[]
 ): FlatConfig[] => {
   const flatConfigs: FlatConfig[] = [ignores(options.ignores)];
@@ -61,6 +66,24 @@ export const hope = (
     flatConfigs.push(...vitest(getOptions(options.vitest)));
   if (options.comment !== false)
     flatConfigs.push(...comment(getOptions(options.comment)));
+  flatConfigs.push({
+    languageOptions: {
+      ...languageOptions,
+      parserOptions: {
+        ...(options.ts
+          ? {
+              parser: tsParser,
+              tsconfigDirName: import.meta.dirname,
+              // enable projectService for typescript-eslint if project is not defined
+              ...(languageOptions.parserOptions?.project
+                ? {}
+                : { projectService: true }),
+            }
+          : {}),
+        ...languageOptions.parserOptions,
+      },
+    },
+  });
   flatConfigs.push(...extraConfigs);
   if (options.prettier !== false) flatConfigs.push(prettier);
 

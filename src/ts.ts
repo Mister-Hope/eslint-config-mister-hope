@@ -88,18 +88,20 @@ export const tsRules: Rules = {
   ],
 };
 
-export const ts = (overrides?: Rules): FlatConfig[] =>
+export const ts = (rules: Rules): FlatConfig[] =>
   config(
     ...tsConfigs.strictTypeChecked,
     ...tsConfigs.stylisticTypeChecked,
-
     {
       name: "hope/ts/rules",
       files: ["**/*.{ts,cts,mts,tsx}"],
       plugins: {
         "@typescript-eslint": plugin,
       },
-      rules: { ...tsRules, ...overrides },
+      rules: {
+        ...tsRules,
+        ...rules,
+      },
     },
 
     {
