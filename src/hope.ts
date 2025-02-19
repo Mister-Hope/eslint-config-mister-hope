@@ -31,7 +31,7 @@ const getOptions = (option?: Rules | boolean): Rules =>
 
 export const hope = (
   options: HopeOptions,
-  ...configs: FlatConfig[]
+  ...extraConfigs: FlatConfig[]
 ): FlatConfig[] => {
   const flatConfigs: FlatConfig[] = [ignores(options.ignores)];
 
@@ -43,9 +43,10 @@ export const hope = (
     flatConfigs.push(...tsImport(getOptions(options.tsImport)));
   if (options.vitest !== false)
     flatConfigs.push(...vitest(getOptions(options.vitest)));
-  if (options.prettier !== false) flatConfigs.push(prettier);
   if (options.comment !== false)
     flatConfigs.push(...comment(getOptions(options.comment)));
+  flatConfigs.push(...extraConfigs);
+  if (options.prettier !== false) flatConfigs.push(prettier);
 
-  return [...flatConfigs, ...configs];
+  return flatConfigs;
 };
