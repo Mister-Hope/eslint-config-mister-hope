@@ -1,6 +1,10 @@
 import { comment } from "./comments.js";
-import type { BaseOptions, FlatConfig, Rules } from "./helpers.js";
-import type { IgnoresOptions } from "./ignores.js";
+import type {
+  BaseOptions,
+  FlatConfig,
+  IgnoresOptions,
+  Rules,
+} from "./helpers.js";
 import { ignores } from "./ignores.js";
 import { js } from "./js.js";
 import { jsImport } from "./jsImport.js";
