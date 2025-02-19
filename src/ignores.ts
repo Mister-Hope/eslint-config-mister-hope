@@ -1,8 +1,4 @@
-import type { TSESLint } from "@typescript-eslint/utils";
-
-import type { FlatConfig } from "./helpers.js";
-
-export type IgnoresOptions = TSESLint.FlatConfig.Config["ignores"];
+import type { FlatConfig, IgnoresOptions } from "./helpers.js";
 
 /**
  * Ignores configuration for eslint.
