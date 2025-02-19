@@ -3,11 +3,24 @@ import { createRequire } from "node:module";
 import eslintPluginImportX from "eslint-plugin-import-x";
 
 import { config } from "./config.js";
-import type { FlatConfig, Rules } from "./typings.js";
+import type { FlatConfig, ImportOptions, Rules } from "./typings.js";
 
 const require = createRequire(import.meta.url);
 
-export const tsImport = (overrides?: Rules): FlatConfig[] =>
+export const tsExtensions = [".ts", ".tsx", ".cts", ".mts"];
+
+export const resolvableExtensions = [
+  ...tsExtensions,
+  ".js",
+  ".jsx",
+  ".cjs",
+  ".mjs",
+];
+
+export const tsImport = ({
+  overrides,
+  settings,
+}: ImportOptions = {}): FlatConfig[] =>
   config(
     eslintPluginImportX.flatConfigs.typescript,
     {
@@ -16,42 +29,19 @@ export const tsImport = (overrides?: Rules): FlatConfig[] =>
       files: ["**/*.ts"],
 
       settings: {
-        "import-x/extensions": [
-          ".cjs",
-          ".cts",
-          ".js",
-          ".jsx",
-          ".mjs",
-          ".mts",
-          ".ts",
-          ".tsx",
-        ],
+        "import-x/extensions": resolvableExtensions,
         "import-x/parsers": {
-          [require.resolve("@typescript-eslint/parser")]: [
-            ".cts",
-            ".mts",
-            ".ts",
-            ".tsx",
-          ],
+          [require.resolve("@typescript-eslint/parser")]: tsExtensions,
         },
         "import-x/resolver": {
           node: {
-            extensions: [
-              ".cjs",
-              ".cts",
-              ".js",
-              ".json",
-              ".jsx",
-              ".mjs",
-              ".mts",
-              ".ts",
-              ".tsx",
-            ],
+            extensions: resolvableExtensions,
           },
           typescript: {
             alwaysTryTypes: true,
           },
         },
+        ...settings,
       },
 
       rules: {

@@ -1,15 +1,19 @@
 import eslintPluginImportX from "eslint-plugin-import-x";
 
 import { config } from "./config.js";
-import type { FlatConfig, Rules } from "./typings.js";
+import type { FlatConfig, ImportOptions, Rules } from "./typings.js";
 
-export const jsImport = (overrides?: Rules): FlatConfig[] =>
+export const jsImport = ({
+  overrides,
+  settings = {},
+}: ImportOptions = {}): FlatConfig[] =>
   config(
     eslintPluginImportX.flatConfigs.recommended,
 
     {
       name: "hope/js-import/config",
       files: ["**/*.{js,cjs,mjs,jsx}"],
+      settings,
       rules: {
         "sort-imports": [
           "error",

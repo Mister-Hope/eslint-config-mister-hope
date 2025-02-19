@@ -6,27 +6,39 @@ import { jsImport } from "./jsImport.js";
 import { prettier } from "./prettier.js";
 import { ts } from "./ts.js";
 import { tsImport } from "./tsImport.js";
-import type { FlatConfig, Rules } from "./typings.js";
+import type { BaseOptions, FlatConfig, Rules } from "./typings.js";
 import { vitest } from "./vitest.js";
 
 export interface HopeOptions {
   ignores?: IgnoresOptions;
-  js?: Rules | boolean;
-  jsImport?: Rules | boolean;
-  ts?: Rules | boolean;
-  tsImport?: Rules | boolean;
   /**
    * @default true
    */
-  vitest?: Rules | boolean;
+  comment?: BaseOptions;
+  /**
+   * @default true
+   */
+  js?: BaseOptions;
+  jsImport?: BaseOptions;
+  /**
+   * @default true
+   */
+  ts?: BaseOptions;
+  /**
+   * @default true
+   */
+  tsImport?: BaseOptions;
   /**
    * @default true
    */
   prettier?: boolean;
-  comment?: Rules | boolean;
+  /**
+   * @default true
+   */
+  vitest?: BaseOptions;
 }
 
-const getOptions = (option?: Rules | boolean): Rules =>
+const getOptions = (option?: BaseOptions): Rules =>
   typeof option === "object" ? option : {};
 
 export const hope = (
