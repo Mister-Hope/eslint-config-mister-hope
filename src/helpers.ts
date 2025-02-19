@@ -1,4 +1,5 @@
 import type { TSESLint } from "@typescript-eslint/utils";
+import pluginTs from "typescript-eslint";
 
 export interface ImportOptions {
   overrides?: Rules;
@@ -7,3 +8,6 @@ export interface ImportOptions {
 export type Rules = TSESLint.FlatConfig.Rules;
 export type BaseOptions = Rules | boolean;
 export type FlatConfig = TSESLint.FlatConfig.Config;
+
+export const config = pluginTs.config;
+export { default as globals } from "globals";

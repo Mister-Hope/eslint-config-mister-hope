@@ -2,8 +2,8 @@ import { createRequire } from "node:module";
 
 import eslintPluginImportX from "eslint-plugin-import-x";
 
-import { config } from "./config.js";
-import type { FlatConfig, ImportOptions, Rules } from "./typings.js";
+import type { FlatConfig, ImportOptions } from "./helpers.js";
+import { config } from "./helpers.js";
 
 const require = createRequire(import.meta.url);
 
@@ -60,7 +60,7 @@ export const tsImport = ({
         "import-x/first": "error",
         "import-x/newline-after-import": "error",
         "import-x/no-commonjs": "error",
-        "import-x/no-cycle": "error",
+        "import-x/no-cycle": "off",
         "import-x/no-duplicates": ["error", { considerQueryString: true }],
         "import-x/no-named-default": "error",
         "import-x/order": [

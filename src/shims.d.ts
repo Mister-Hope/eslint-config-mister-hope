@@ -18,6 +18,13 @@ declare module "@eslint-community/eslint-plugin-eslint-comments/configs" {
   export = { recommended };
 }
 
+declare module "eslint-config-prettier" {
+  import type { Linter } from "eslint";
+
+  const config: Linter.Config;
+  export = config;
+}
+
 declare module "eslint-plugin-vue" {
   import type { Linter } from "eslint";
 

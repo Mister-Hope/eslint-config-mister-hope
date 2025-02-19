@@ -1,6 +1,6 @@
 import type { TSESLint } from "@typescript-eslint/utils";
 
-import type { FlatConfig } from "./typings.js";
+import type { FlatConfig } from "./helpers.js";
 
 export type IgnoresOptions = TSESLint.FlatConfig.Config["ignores"];
 

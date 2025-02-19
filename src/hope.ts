@@ -1,4 +1,5 @@
 import { comment } from "./comments.js";
+import type { BaseOptions, FlatConfig, Rules } from "./helpers.js";
 import type { IgnoresOptions } from "./ignores.js";
 import { ignores } from "./ignores.js";
 import { js } from "./js.js";
@@ -6,7 +7,6 @@ import { jsImport } from "./jsImport.js";
 import { prettier } from "./prettier.js";
 import { ts } from "./ts.js";
 import { tsImport } from "./tsImport.js";
-import type { BaseOptions, FlatConfig, Rules } from "./typings.js";
 import { vitest } from "./vitest.js";
 
 export interface HopeOptions {

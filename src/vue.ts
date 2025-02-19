@@ -1,8 +1,8 @@
 import pluginVue from "eslint-plugin-vue";
 
-import { config } from "./config.js";
+import type { FlatConfig, Rules } from "./helpers.js";
+import { config } from "./helpers.js";
 import { tsRules } from "./ts.js";
-import type { FlatConfig, Rules } from "./typings.js";
 
 export { default as vueParser } from "vue-eslint-parser";
 

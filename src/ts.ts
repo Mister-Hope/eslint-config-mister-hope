@@ -1,7 +1,7 @@
 import { plugin, configs as tsConfigs } from "typescript-eslint";
 
-import { config } from "./config.js";
-import type { FlatConfig, Rules } from "./typings.js";
+import type { FlatConfig, Rules } from "./helpers.js";
+import { config } from "./helpers.js";
 
 export { configs as tsConfigs } from "typescript-eslint";
 export { parser as tsParser } from "typescript-eslint";

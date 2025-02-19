@@ -1,1 +1,1 @@
-export { default as prettier } from "eslint-plugin-prettier/recommended";
+export { default as prettier } from "eslint-config-prettier";

@@ -1,7 +1,7 @@
 import comments from "@eslint-community/eslint-plugin-eslint-comments/configs";
 
-import { config } from "./config.js";
-import type { FlatConfig, Rules } from "./typings.js";
+import type { FlatConfig, Rules } from "./helpers.js";
+import { config } from "./helpers.js";
 
 const { rules, ...rest } = comments.recommended;
 

@@ -1,7 +1,7 @@
 import pluginVitest from "@vitest/eslint-plugin";
 
-import { config } from "./config.js";
-import type { FlatConfig, Rules } from "./typings.js";
+import type { FlatConfig, Rules } from "./helpers.js";
+import { config } from "./helpers.js";
 
 const { rules, ...rest } = pluginVitest.configs.recommended;
 
