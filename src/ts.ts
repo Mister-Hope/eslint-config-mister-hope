@@ -1,12 +1,12 @@
-import type { TSESLint } from "@typescript-eslint/utils";
 import { plugin, configs as tsConfigs } from "typescript-eslint";
 
 import { config } from "./config.js";
+import type { FlatConfig, Rules } from "./typings.js";
 
 export { configs as tsConfigs } from "typescript-eslint";
 export { parser as tsParser } from "typescript-eslint";
 
-export const tsRules: TSESLint.FlatConfig.Rules = {
+export const tsRules: Rules = {
   "@typescript-eslint/consistent-type-imports": "error",
   "@typescript-eslint/explicit-function-return-type": [
     "warn",
@@ -88,20 +88,23 @@ export const tsRules: TSESLint.FlatConfig.Rules = {
   ],
 };
 
-export const ts = config(
-  ...tsConfigs.strictTypeChecked,
-  ...tsConfigs.stylisticTypeChecked,
+export const ts = (overrides?: Rules): FlatConfig[] =>
+  config(
+    ...tsConfigs.strictTypeChecked,
+    ...tsConfigs.stylisticTypeChecked,
 
-  {
-    files: ["**/*.ts", "**/*.cts", "**/*.mts"],
-    plugins: {
-      "@typescript-eslint": plugin,
+    {
+      name: "hope/ts/rules",
+      files: ["**/*.{ts,cts,mts,tsx}"],
+      plugins: {
+        "@typescript-eslint": plugin,
+      },
+      rules: { ...tsRules, ...overrides },
     },
-    rules: tsRules,
-  },
 
-  {
-    files: ["**/*.{js,cjs,mjs,jsx}"],
-    ...tsConfigs.disableTypeChecked,
-  },
-);
+    {
+      name: "hope/ts/js-rules",
+      files: ["**/*.{js,cjs,mjs,jsx}"],
+      ...tsConfigs.disableTypeChecked,
+    },
+  );

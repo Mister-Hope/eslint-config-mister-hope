@@ -1,23 +1,8 @@
-import defaultConfig, { config } from "./src/index.js";
+import { hope } from "./src/index.js";
 
-export default config(
-  ...defaultConfig,
+export default hope(
   {
-    ignores: ["**/lib/**", "**/node_modules/**"],
-  },
-  {
-    languageOptions: {
-      ecmaVersion: "latest",
-      sourceType: "module",
-      parserOptions: {
-        projectService: {
-          allowDefaultProject: ["eslint.config.ts"],
-        },
-      },
-    },
-  },
-  {
-    rules: {
+    ts: {
       "@typescript-eslint/naming-convention": [
         "warn",
         {
@@ -50,6 +35,17 @@ export default config(
           format: ["PascalCase"],
         },
       ],
+    },
+  },
+  {
+    languageOptions: {
+      ecmaVersion: "latest",
+      sourceType: "module",
+      parserOptions: {
+        projectService: {
+          allowDefaultProject: ["eslint.config.ts"],
+        },
+      },
     },
   },
 );
