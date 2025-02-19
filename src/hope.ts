@@ -70,7 +70,7 @@ export const hope = (
     languageOptions: {
       ...languageOptions,
       parserOptions: {
-        ...(options.ts
+        ...(options.ts !== false
           ? {
               parser: tsParser,
               tsconfigDirName: import.meta.dirname,
