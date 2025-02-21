@@ -53,6 +53,10 @@ export const defaultNamingConventionRules = [
     selector: "typeLike",
     format: ["PascalCase"],
   },
+  {
+    selector: "enumMember",
+    format: ["PascalCase"],
+  },
 ];
 
 export const tsRules: Rules = {
