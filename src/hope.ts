@@ -43,7 +43,7 @@ export interface HopeOptions {
    * @default true
    */
   vitest?: BaseOptions;
-  wxapp?: WXAppOptions;
+  wxapp?: WXAppOptions | boolean;
 }
 
 const getOptions = <T>(
@@ -69,7 +69,10 @@ export const hope = (
     flatConfigs.push(...vitest(getOptions(options.vitest)));
   if (options.comment !== false)
     flatConfigs.push(...comment(getOptions(options.comment)));
-  if (options.wxapp) flatConfigs.push(...wxapp(options.wxapp));
+  if (options.wxapp)
+    flatConfigs.push(
+      ...wxapp(typeof options.wxapp === "object" ? options.wxapp : {}),
+    );
 
   flatConfigs.push({
     languageOptions: {
