@@ -12,6 +12,8 @@ import { prettier } from "./prettier.js";
 import { ts, tsParser } from "./ts.js";
 import { tsImport } from "./tsImport.js";
 import { vitest } from "./vitest.js";
+import type { WXAppOptions } from "./wxapp.js";
+import { wxapp } from "./wxapp.js";
 
 export interface HopeOptions {
   ignores?: IgnoresOptions;
@@ -41,6 +43,7 @@ export interface HopeOptions {
    * @default true
    */
   vitest?: BaseOptions;
+  wxapp?: WXAppOptions;
 }
 
 const getOptions = <T>(
@@ -66,6 +69,8 @@ export const hope = (
     flatConfigs.push(...vitest(getOptions(options.vitest)));
   if (options.comment !== false)
     flatConfigs.push(...comment(getOptions(options.comment)));
+  if (options.wxapp) flatConfigs.push(...wxapp(options.wxapp));
+
   flatConfigs.push({
     languageOptions: {
       ...languageOptions,
@@ -84,7 +89,10 @@ export const hope = (
       },
     },
   });
+
   flatConfigs.push(...extraConfigs);
+
+  // prettier config shall come last
   if (options.prettier !== false) flatConfigs.push(prettier);
 
   return flatConfigs;

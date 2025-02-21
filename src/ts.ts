@@ -6,6 +6,55 @@ import { config } from "./helpers.js";
 export { configs as tsConfigs } from "typescript-eslint";
 export { parser as tsParser } from "typescript-eslint";
 
+export const defaultNamingConventionRules = [
+  {
+    selector: "default",
+    format: ["camelCase"],
+  },
+  // allow __dirname and __filename
+  {
+    selector: "variable",
+    filter: {
+      regex: "^__(?:dirname|filename)$",
+      match: true,
+    },
+    format: null,
+  },
+  // allow UPPER_CASE variable with _ prefix and suffix
+  {
+    selector: "variable",
+    filter: {
+      regex: "^(?:_{0,2})[A-Z][A-z0-9]*(?:_[A-Z][A-z0-9]*)*$",
+      match: true,
+    },
+    format: null,
+  },
+  {
+    selector: ["variable"],
+    format: ["camelCase", "PascalCase", "UPPER_CASE"],
+    leadingUnderscore: "allow",
+  },
+  {
+    selector: ["parameter"],
+    format: ["camelCase", "PascalCase"],
+    leadingUnderscore: "allow",
+  },
+  {
+    selector: ["property"],
+    format: ["camelCase", "PascalCase", "UPPER_CASE"],
+    leadingUnderscore: "allow",
+    trailingUnderscore: "allow",
+  },
+  {
+    selector: "import",
+    format: ["PascalCase", "camelCase"],
+  },
+  {
+    selector: "typeLike",
+    format: ["PascalCase"],
+  },
+];
+
 export const tsRules: Rules = {
   "@typescript-eslint/consistent-type-imports": "error",
   "@typescript-eslint/explicit-function-return-type": [
@@ -18,38 +67,7 @@ export const tsRules: Rules = {
   ],
   "@typescript-eslint/naming-convention": [
     "warn",
-    {
-      selector: "default",
-      format: ["camelCase"],
-      leadingUnderscore: "allowSingleOrDouble",
-      trailingUnderscore: "allow",
-    },
-    {
-      selector: ["variable"],
-      format: ["camelCase", "PascalCase", "UPPER_CASE"],
-      leadingUnderscore: "allowSingleOrDouble",
-      trailingUnderscore: "allowSingleOrDouble",
-    },
-    {
-      selector: ["parameter"],
-      format: ["camelCase", "PascalCase"],
-      leadingUnderscore: "allow",
-      trailingUnderscore: "allow",
-    },
-    {
-      selector: ["property"],
-      format: ["camelCase", "PascalCase", "UPPER_CASE"],
-      leadingUnderscore: "allow",
-      trailingUnderscore: "allow",
-    },
-    {
-      selector: "import",
-      format: ["PascalCase", "camelCase"],
-    },
-    {
-      selector: "typeLike",
-      format: ["PascalCase"],
-    },
+    ...defaultNamingConventionRules,
   ],
   "@typescript-eslint/no-confusing-void-expression": [
     "error",

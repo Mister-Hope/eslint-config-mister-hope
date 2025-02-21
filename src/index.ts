@@ -8,3 +8,4 @@ export * from "./prettier.js";
 export * from "./ts.js";
 export * from "./tsImport.js";
 export * from "./vitest.js";
+export * from "./wxapp.js";
