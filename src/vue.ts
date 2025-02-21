@@ -6,7 +6,12 @@ import { tsRules } from "./ts.js";
 
 export { default as vueParser } from "vue-eslint-parser";
 
-export const vue = (overrides?: Rules, sfcOverrides?: Rules): FlatConfig[] =>
+export interface VueOptions {
+  all?: Rules;
+  sfc?: Rules;
+}
+
+export const vue = ({ all, sfc }: VueOptions = {}): FlatConfig[] =>
   config(
     ...pluginVue.configs["flat/recommended"],
 
@@ -51,7 +56,7 @@ export const vue = (overrides?: Rules, sfcOverrides?: Rules): FlatConfig[] =>
         "vue/singleline-html-element-content-newline": "off",
         "vue/static-class-names-order": "warn",
         "vue/v-for-delimiter-style": "error",
-        ...overrides,
+        ...all,
       },
     },
 
@@ -120,7 +125,7 @@ export const vue = (overrides?: Rules, sfcOverrides?: Rules): FlatConfig[] =>
         "vue/script-indent": "error",
         "vue/static-class-names-order": "error",
         "vue/v-for-delimiter-style": "error",
-        ...sfcOverrides,
+        ...sfc,
       },
     },
   );
