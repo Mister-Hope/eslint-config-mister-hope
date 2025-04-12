@@ -37,15 +37,15 @@
     "*.{js,ts}": "eslint --fix"
   },
   "dependencies": {
-    "@eslint-community/eslint-plugin-eslint-comments": "^4.4.1",
-    "@eslint/js": "^9.21.0",
-    "@typescript-eslint/utils": "^8.26.0",
-    "@vitest/eslint-plugin": "^1.1.36",
+    "@eslint-community/eslint-plugin-eslint-comments": "^4.5.0",
+    "@eslint/js": "^9.24.0",
+    "@typescript-eslint/utils": "^8.29.1",
+    "@vitest/eslint-plugin": "^1.1.42",
     "eslint-config-prettier": "10.1.2",
-    "eslint-import-resolver-typescript": "^3.8.3",
-    "eslint-plugin-import-x": "^4.6.1",
+    "eslint-import-resolver-typescript": "^4.3.2",
+    "eslint-plugin-import-x": "^4.10.2",
     "globals": "^16.0.0",
-    "typescript-eslint": "^8.26.0"
+    "typescript-eslint": "^8.29.1"
   },
   "devDependencies": {
     "@commitlint/cli": "19.8.0",
@@ -71,7 +71,7 @@
       "optional": true
     }
   },
-  "packageManager": "pnpm@10.6.1",
+  "packageManager": "pnpm@10.8.0",
   "publishConfig": {
     "access": "public"
   }

@@ -1,6 +1,7 @@
 import { createRequire } from "node:module";
+import { createTypeScriptImportResolver } from "eslint-import-resolver-typescript";
 
-import eslintPluginImportX from "eslint-plugin-import-x";
+import { createNodeResolver, flatConfigs } from "eslint-plugin-import-x";
 
 import type { FlatConfig, ImportOptions } from "./helpers.js";
 import { config } from "./helpers.js";
@@ -22,24 +23,18 @@ export const tsImport = ({
   settings,
 }: ImportOptions = {}): FlatConfig[] =>
   config(
-    eslintPluginImportX.flatConfigs.typescript,
+    flatConfigs.typescript,
     {
       name: "hope/ts-import/config",
 
       files: ["**/*.ts"],
-
       settings: {
-        "import-x/extensions": resolvableExtensions,
+        "import-x/resolver-next": [
+          createNodeResolver(),
+          createTypeScriptImportResolver(),
+        ],
         "import-x/parsers": {
           [require.resolve("@typescript-eslint/parser")]: tsExtensions,
-        },
-        "import-x/resolver": {
-          node: {
-            extensions: resolvableExtensions,
-          },
-          typescript: {
-            alwaysTryTypes: true,
-          },
         },
         ...settings,
       },

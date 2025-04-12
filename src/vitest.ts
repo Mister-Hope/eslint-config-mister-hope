@@ -8,6 +8,7 @@ const { rules, ...rest } = pluginVitest.configs.recommended;
 export const vitest = (overrides?: Rules): FlatConfig[] =>
   config(
     {
+      ...rest,
       name: "hope/vitest/rules",
       files: [
         "**/*.{spec,test}.{js,jsx,ts,tsx}",
@@ -18,7 +19,6 @@ export const vitest = (overrides?: Rules): FlatConfig[] =>
           typecheck: true,
         },
       },
-      ...rest,
       rules: {
         ...rules,
         ...overrides,

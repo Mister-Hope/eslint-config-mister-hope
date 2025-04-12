@@ -1,4 +1,4 @@
-import eslintPluginImportX from "eslint-plugin-import-x";
+import { createNodeResolver, flatConfigs } from "eslint-plugin-import-x";
 
 import type { FlatConfig, ImportOptions } from "./helpers.js";
 import { config } from "./helpers.js";
@@ -8,12 +8,15 @@ export const jsImport = ({
   settings = {},
 }: ImportOptions = {}): FlatConfig[] =>
   config(
-    eslintPluginImportX.flatConfigs.recommended,
+    flatConfigs.recommended,
 
     {
       name: "hope/js-import/config",
       files: ["**/*.{js,cjs,mjs,jsx}"],
-      settings,
+      settings: {
+        "import-x/resolver-next": [createNodeResolver()],
+        ...settings,
+      },
       rules: {
         "sort-imports": [
           "error",
