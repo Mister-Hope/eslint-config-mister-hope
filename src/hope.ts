@@ -54,7 +54,7 @@ const getOptions = <T>(
     : Exclude<T, boolean>;
 
 export const hope = (
-  { languageOptions = {}, ...options }: HopeOptions,
+  { languageOptions = {}, ...options }: HopeOptions = {},
   ...extraConfigs: FlatConfig[]
 ): FlatConfig[] => {
   const flatConfigs: FlatConfig[] = [ignores(options.ignores)];
