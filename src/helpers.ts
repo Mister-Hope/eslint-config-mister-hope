@@ -4,7 +4,7 @@ import pluginTs from "typescript-eslint";
 export type LanguageOptions = TSESLint.FlatConfig.Config["languageOptions"];
 export type IgnoresOptions = TSESLint.FlatConfig.Config["ignores"];
 export interface ImportOptions {
-  overrides?: Rules;
+  rules?: Rules;
   settings?: Record<string, unknown>;
 }
 export type Rules = TSESLint.FlatConfig.Rules;

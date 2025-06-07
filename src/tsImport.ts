@@ -19,7 +19,7 @@ export const resolvableExtensions = [
 ];
 
 export const tsImport = ({
-  overrides,
+  rules,
   settings,
 }: ImportOptions = {}): FlatConfig[] =>
   config(
@@ -76,8 +76,8 @@ export const tsImport = ({
             "newlines-between": "always",
           },
         ],
+        ...rules,
       },
-      ...overrides,
     },
 
     {

@@ -4,8 +4,8 @@ import type { FlatConfig, ImportOptions } from "./helpers.js";
 import { config } from "./helpers.js";
 
 export const jsImport = ({
-  overrides,
-  settings = {},
+  rules,
+  settings,
 }: ImportOptions = {}): FlatConfig[] =>
   config(
     flatConfigs.recommended,
@@ -54,7 +54,7 @@ export const jsImport = ({
             "newlines-between": "always",
           },
         ],
-        ...overrides,
+        ...rules,
       },
     },
 
