@@ -3,6 +3,7 @@ import type {
   BaseOptions,
   FlatConfig,
   IgnoresOptions,
+  ImportOptions,
   LanguageOptions,
 } from "./helpers.js";
 import { ignores } from "./ignores.js";
@@ -18,31 +19,45 @@ import { wxapp } from "./wxapp.js";
 export interface HopeOptions {
   ignores?: IgnoresOptions;
   languageOptions?: LanguageOptions;
+
   /**
    * @default true
    */
   comment?: BaseOptions;
+
   /**
    * @default true
    */
   js?: BaseOptions;
-  jsImport?: BaseOptions;
+
+  /**
+   * @default true
+   */
+  jsImport?: ImportOptions | boolean;
+
   /**
    * @default true
    */
   ts?: BaseOptions;
+
   /**
    * @default true
    */
-  tsImport?: BaseOptions;
+  tsImport?: ImportOptions | boolean;
+
   /**
    * @default true
    */
   prettier?: boolean;
+
   /**
    * @default true
    */
   vitest?: BaseOptions;
+
+  /**
+   * @default false
+   */
   wxapp?: WXAppOptions | boolean;
 }
 
