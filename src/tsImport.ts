@@ -1,12 +1,8 @@
-import { createRequire } from "node:module";
 import { createTypeScriptImportResolver } from "eslint-import-resolver-typescript";
-
 import { createNodeResolver, flatConfigs } from "eslint-plugin-import-x";
 
 import type { FlatConfig, ImportOptions } from "./helpers.js";
 import { config } from "./helpers.js";
-
-const require = createRequire(import.meta.url);
 
 export const tsExtensions = [".ts", ".tsx", ".cts", ".mts"];
 
@@ -34,7 +30,7 @@ export const tsImport = ({
           createTypeScriptImportResolver(),
         ],
         "import-x/parsers": {
-          [require.resolve("@typescript-eslint/parser")]: tsExtensions,
+          [import.meta.resolve("@typescript-eslint/parser")]: tsExtensions,
         },
         ...settings,
       },
