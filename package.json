@@ -72,7 +72,7 @@
       "optional": true
     }
   },
-  "packageManager": "pnpm@10.12.2",
+  "packageManager": "pnpm@10.12.4",
   "publishConfig": {
     "access": "public"
   }
