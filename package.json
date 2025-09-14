@@ -51,7 +51,7 @@
   "devDependencies": {
     "@commitlint/cli": "19.8.1",
     "@commitlint/config-conventional": "19.8.1",
-    "@types/node": "24.3.3",
+    "@types/node": "24.4.0",
     "husky": "9.1.7",
     "jiti": "2.5.1",
     "nano-staged": "0.8.0",
