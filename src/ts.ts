@@ -1,7 +1,7 @@
 import { plugin, configs as tsConfigs } from "typescript-eslint";
 
-import type { FlatConfig, Rules } from "./helpers.js";
-import { config } from "./helpers.js";
+import type { Config, Rules } from "./helpers.js";
+import { defineConfig } from "./helpers.js";
 
 export { configs as tsConfigs } from "typescript-eslint";
 export { parser as tsParser } from "typescript-eslint";
@@ -110,8 +110,8 @@ export const tsRules: Rules = {
   ],
 };
 
-export const ts = (rules: Rules): FlatConfig[] =>
-  config(
+export const ts = (rules: Rules): Config[] =>
+  defineConfig(
     ...tsConfigs.strictTypeChecked,
     ...tsConfigs.stylisticTypeChecked,
     {

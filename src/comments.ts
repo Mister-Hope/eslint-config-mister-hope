@@ -1,12 +1,12 @@
 import comments from "@eslint-community/eslint-plugin-eslint-comments/configs";
 
-import type { FlatConfig, Rules } from "./helpers.js";
-import { config } from "./helpers.js";
+import type { Config, Rules } from "./helpers.js";
+import { defineConfig } from "./helpers.js";
 
 const { rules, ...rest } = comments.recommended;
 
-export const comment = (overrides?: Rules): FlatConfig[] =>
-  config({
+export const comment = (overrides?: Rules): Config[] =>
+  defineConfig({
     name: "hope/eslint-comment",
     ...rest,
     rules: {

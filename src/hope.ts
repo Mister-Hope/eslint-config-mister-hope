@@ -1,7 +1,7 @@
 import { comment } from "./comments.js";
 import type {
   BaseOptions,
-  FlatConfig,
+  Config,
   IgnoresOptions,
   ImportOptions,
   LanguageOptions,
@@ -70,26 +70,26 @@ const getOptions = <T>(
 
 export const hope = (
   { languageOptions = {}, ...options }: HopeOptions = {},
-  ...extraConfigs: FlatConfig[]
-): FlatConfig[] => {
-  const flatConfigs: FlatConfig[] = [ignores(options.ignores)];
+  ...extraConfigs: Config[]
+): Config[] => {
+  const configs: Config[] = [ignores(options.ignores)];
 
-  if (options.js !== false) flatConfigs.push(...js(getOptions(options.js)));
+  if (options.js !== false) configs.push(...js(getOptions(options.js)));
   if (options.jsImport !== false)
-    flatConfigs.push(...jsImport(getOptions(options.jsImport)));
-  if (options.ts !== false) flatConfigs.push(...ts(getOptions(options.ts)));
+    configs.push(...jsImport(getOptions(options.jsImport)));
+  if (options.ts !== false) configs.push(...ts(getOptions(options.ts)));
   if (options.tsImport !== false)
-    flatConfigs.push(...tsImport(getOptions(options.tsImport)));
+    configs.push(...tsImport(getOptions(options.tsImport)));
   if (options.vitest !== false)
-    flatConfigs.push(...vitest(getOptions(options.vitest)));
+    configs.push(...vitest(getOptions(options.vitest)));
   if (options.comment !== false)
-    flatConfigs.push(...comment(getOptions(options.comment)));
+    configs.push(...comment(getOptions(options.comment)));
   if (options.wxapp)
-    flatConfigs.push(
+    configs.push(
       ...wxapp(typeof options.wxapp === "object" ? options.wxapp : {}),
     );
 
-  flatConfigs.push({
+  configs.push({
     languageOptions: {
       ...languageOptions,
       parserOptions: {
@@ -108,10 +108,10 @@ export const hope = (
     },
   });
 
-  flatConfigs.push(...extraConfigs);
+  configs.push(...extraConfigs);
 
   // prettier config shall come last
-  if (options.prettier !== false) flatConfigs.push(prettier);
+  if (options.prettier !== false) configs.push(prettier);
 
-  return flatConfigs;
+  return configs;
 };

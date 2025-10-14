@@ -1,8 +1,8 @@
 import { createTypeScriptImportResolver } from "eslint-import-resolver-typescript";
 import { createNodeResolver, flatConfigs } from "eslint-plugin-import-x";
 
-import type { FlatConfig, ImportOptions } from "./helpers.js";
-import { config } from "./helpers.js";
+import type { Config, ImportOptions } from "./helpers.js";
+import { defineConfig } from "./helpers.js";
 
 export const tsExtensions = [".ts", ".tsx", ".cts", ".mts"];
 
@@ -17,8 +17,8 @@ export const resolvableExtensions = [
 export const tsImport = ({
   rules,
   settings,
-}: ImportOptions = {}): FlatConfig[] =>
-  config(
+}: ImportOptions = {}): Config[] =>
+  defineConfig(
     flatConfigs.typescript,
     {
       name: "hope/ts-import/config",

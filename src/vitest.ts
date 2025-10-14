@@ -1,19 +1,21 @@
 import pluginVitest from "@vitest/eslint-plugin";
 
-import type { FlatConfig, Rules } from "./helpers.js";
-import { config } from "./helpers.js";
+import type { Config, Rules } from "./helpers.js";
+import { defineConfig } from "./helpers.js";
 
 const { rules, ...rest } = pluginVitest.configs.recommended;
 
-export const vitest = (overrides?: Rules): FlatConfig[] =>
-  config(
+export const vitest = (overrides?: Rules): Config[] =>
+  defineConfig(
     {
-      ...rest,
       name: "hope/vitest/rules",
       files: [
         "**/*.{spec,test}.{js,jsx,ts,tsx}",
         "**/*.{spec,test}-d.{js,jsx,ts,tsx}",
       ],
+      plugins: {
+        vitest: pluginVitest,
+      },
       settings: {
         vitest: {
           typecheck: true,

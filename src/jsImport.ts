@@ -1,13 +1,13 @@
 import { createNodeResolver, flatConfigs } from "eslint-plugin-import-x";
 
-import type { FlatConfig, ImportOptions } from "./helpers.js";
-import { config } from "./helpers.js";
+import type { Config, ImportOptions } from "./helpers.js";
+import { defineConfig } from "./helpers.js";
 
 export const jsImport = ({
   rules,
   settings,
-}: ImportOptions = {}): FlatConfig[] =>
-  config(
+}: ImportOptions = {}): Config[] =>
+  defineConfig(
     flatConfigs.recommended,
 
     {

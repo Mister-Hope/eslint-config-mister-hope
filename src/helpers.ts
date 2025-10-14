@@ -1,14 +1,14 @@
-import type { TSESLint } from "@typescript-eslint/utils";
+import { Linter } from "eslint";
 
-export type LanguageOptions = TSESLint.FlatConfig.Config["languageOptions"];
-export type IgnoresOptions = TSESLint.FlatConfig.Config["ignores"];
+export type Config = Linter.Config
+export type IgnoresOptions = string[];
+export type LanguageOptions = Linter.LanguageOptions;
 export interface ImportOptions {
   rules?: Rules;
   settings?: Record<string, unknown>;
 }
-export type Rules = TSESLint.FlatConfig.Rules;
+export type Rules = Linter.RulesRecord;
 export type BaseOptions = Rules | boolean;
-export type FlatConfig = TSESLint.FlatConfig.Config;
 
+export { defineConfig } from "eslint/config";
 export { default as globals } from "globals";
-export { config } from "typescript-eslint";

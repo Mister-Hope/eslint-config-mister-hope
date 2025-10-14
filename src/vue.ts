@@ -1,7 +1,7 @@
 import pluginVue from "eslint-plugin-vue";
 
-import type { FlatConfig, Rules } from "./helpers.js";
-import { config } from "./helpers.js";
+import type { Config, Rules } from "./helpers.js";
+import { defineConfig } from "./helpers.js";
 import { tsRules } from "./ts.js";
 
 export { default as vueParser } from "vue-eslint-parser";
@@ -11,8 +11,8 @@ export interface VueOptions {
   sfc?: Rules;
 }
 
-export const vue = ({ all, sfc }: VueOptions = {}): FlatConfig[] =>
-  config(
+export const vue = ({ all, sfc }: VueOptions = {}): Config[] =>
+  defineConfig(
     ...pluginVue.configs["flat/recommended"],
 
     {
