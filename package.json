@@ -1,12 +1,21 @@
 {
   "name": "eslint-config-mister-hope",
-  "version": "0.9.6",
+  "version": "0.10.0",
   "description": "eslint plugin for hope",
   "keywords": [
     "eslint",
     "eslint-config"
   ],
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+http://github.com/Mister-Hope/eslint-config-mister-hope.git"
+  },
+  "author": {
+    "name": "Mister-Hope",
+    "email": "mister-hope@outlook.com",
+    "url": "https://mister-hope.com"
+  },
   "exports": {
     ".": {
       "type": "./dist/index.d.ts",
