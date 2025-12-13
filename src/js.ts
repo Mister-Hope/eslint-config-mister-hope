@@ -1,10 +1,11 @@
 import jsConfig from "@eslint/js";
 
-import type { FlatConfig, Rules } from "./helpers.js";
-import { config } from "./helpers.js";
+import type { Config, Rules } from "./helpers.js";
+import { defineConfig } from "./helpers.js";
 
-export const js = (overrides?: Rules): FlatConfig[] =>
-  config(
+
+export const js = (overrides?: Rules): Config[] =>
+  defineConfig(
     jsConfig.configs.recommended,
     {
       name: "hope/js/rules",

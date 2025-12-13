@@ -1,5 +1,5 @@
-import type { FlatConfig, Rules } from "./helpers.js";
-import { config } from "./helpers.js";
+import type { Config, Rules } from "./helpers.js";
+import { defineConfig } from "./helpers.js";
 import { tsConfigs } from "./ts.js";
 
 export interface WXAppOptions {
@@ -15,8 +15,8 @@ export const wxapp = ({
   folder = "app",
   ts,
   wxs,
-}: WXAppOptions = {}): FlatConfig[] =>
-  config(
+}: WXAppOptions = {}): Config[] =>
+  defineConfig(
     {
       name: "wxapp/ts-rules",
       files: [`${folder ? `${folder}/` : ""}**/*.ts`],

@@ -1,14 +1,18 @@
-import type { TSESLint } from "@typescript-eslint/utils";
+import type { Config } from "eslint/config";
 
-export type LanguageOptions = TSESLint.FlatConfig.Config["languageOptions"];
-export type IgnoresOptions = TSESLint.FlatConfig.Config["ignores"];
+export type LanguageOptions = Exclude<Config["languageOptions"], undefined> & {
+  parserOptions?: Record<string, unknown>;
+};
+
+export type IgnoresOptions = Exclude<Config["ignores"], undefined>;
+
 export interface ImportOptions {
   rules?: Rules;
   settings?: Record<string, unknown>;
 }
-export type Rules = TSESLint.FlatConfig.Rules;
-export type BaseOptions = Rules | boolean;
-export type FlatConfig = TSESLint.FlatConfig.Config;
 
+export type Rules = Exclude<Config["rules"], undefined>;
+export type BaseOptions = Rules | boolean;
+
+export { defineConfig, Config } from "eslint/config";
 export { default as globals } from "globals";
-export { config } from "typescript-eslint";
