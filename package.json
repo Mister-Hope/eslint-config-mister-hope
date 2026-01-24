@@ -64,7 +64,7 @@
     "husky": "9.1.7",
     "jiti": "2.6.1",
     "nano-staged": "0.9.0",
-    "prettier": "3.8.0",
+    "prettier": "3.8.1",
     "rimraf": "6.1.2",
     "typescript": "5.9.3"
   },
