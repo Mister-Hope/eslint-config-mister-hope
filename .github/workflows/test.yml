@@ -35,9 +35,6 @@ jobs:
           cache: pnpm
 
       - name: Build project
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-          NODE_OPTIONS: --max_old_space_size=8192
         run: pnpm build
 
       - name: Linter test
