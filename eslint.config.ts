@@ -1,45 +1,53 @@
-import { hope } from "./src/index.js";
+import { globals, hope } from "./src/index.js";
 
-export default hope({
-  languageOptions: {
-    parserOptions: {
-      projectService: {
-        allowDefaultProject: ["eslint.config.ts"],
+export default hope(
+  {
+    languageOptions: {
+      parserOptions: {
+        projectService: {
+          allowDefaultProject: [".ncurc.cjs"],
+        },
       },
     },
-  },
-  ts: {
-    "@typescript-eslint/naming-convention": [
-      "warn",
-      {
-        selector: "default",
-        format: ["camelCase"],
-      },
-      {
-        selector: ["variable"],
-        format: ["camelCase", "PascalCase", "UPPER_CASE"],
-      },
-      {
-        selector: ["parameter"],
-        format: ["camelCase", "PascalCase"],
-      },
-      {
-        selector: ["property"],
-        format: null,
-        custom: {
-          regex: ".*",
-          match: true,
+    ts: {
+      "@typescript-eslint/naming-convention": [
+        "warn",
+        {
+          selector: "default",
+          format: ["camelCase"],
         },
-        filter: ".*",
-      },
-      {
-        selector: "import",
-        format: ["PascalCase", "camelCase"],
-      },
-      {
-        selector: "typeLike",
-        format: ["PascalCase"],
-      },
-    ],
+        {
+          selector: ["variable"],
+          format: ["camelCase", "PascalCase", "UPPER_CASE"],
+        },
+        {
+          selector: ["parameter"],
+          format: ["camelCase", "PascalCase"],
+        },
+        {
+          selector: ["property"],
+          format: null,
+          custom: {
+            regex: ".*",
+            match: true,
+          },
+          filter: ".*",
+        },
+        {
+          selector: "import",
+          format: ["PascalCase", "camelCase"],
+        },
+        {
+          selector: "typeLike",
+          format: ["PascalCase"],
+        },
+      ],
+    },
   },
-});
+  {
+    files: [".ncurc.cjs"],
+    languageOptions: {
+      globals: globals.node,
+    },
+  },
+);
