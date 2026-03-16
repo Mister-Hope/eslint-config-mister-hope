@@ -3,7 +3,6 @@ import jsConfig from "@eslint/js";
 import type { Config, Rules } from "./helpers.js";
 import { defineConfig } from "./helpers.js";
 
-
 export const js = (overrides?: Rules): Config[] =>
   defineConfig(
     jsConfig.configs.recommended,

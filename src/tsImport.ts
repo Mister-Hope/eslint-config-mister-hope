@@ -6,13 +6,7 @@ import { defineConfig } from "./helpers.js";
 
 export const tsExtensions = [".ts", ".tsx", ".cts", ".mts"];
 
-export const resolvableExtensions = [
-  ...tsExtensions,
-  ".js",
-  ".jsx",
-  ".cjs",
-  ".mjs",
-];
+export const resolvableExtensions = [...tsExtensions, ".js", ".jsx", ".cjs", ".mjs"];
 
 export const tsImport = ({ rules, settings }: ImportOptions = {}): Config[] =>
   defineConfig(
@@ -23,10 +17,7 @@ export const tsImport = ({ rules, settings }: ImportOptions = {}): Config[] =>
 
       files: ["**/*.ts"],
       settings: {
-        "import-x/resolver-next": [
-          createNodeResolver(),
-          createTypeScriptImportResolver(),
-        ],
+        "import-x/resolver-next": [createNodeResolver(), createTypeScriptImportResolver()],
         "import-x/parsers": {
           [import.meta.resolve("@typescript-eslint/parser")]: tsExtensions,
         },
@@ -42,10 +33,7 @@ export const tsImport = ({ rules, settings }: ImportOptions = {}): Config[] =>
           },
         ],
 
-        "import-x/consistent-type-specifier-style": [
-          "error",
-          "prefer-top-level",
-        ],
+        "import-x/consistent-type-specifier-style": ["error", "prefer-top-level"],
         "import-x/first": "error",
         "import-x/newline-after-import": "error",
         "import-x/no-commonjs": "error",
@@ -59,14 +47,7 @@ export const tsImport = ({ rules, settings }: ImportOptions = {}): Config[] =>
               order: "asc",
               orderImportKind: "asc",
             },
-            groups: [
-              "builtin",
-              "external",
-              "internal",
-              ["parent", "sibling"],
-              "index",
-              "object",
-            ],
+            groups: ["builtin", "external", "internal", ["parent", "sibling"], "index", "object"],
             "newlines-between": "always",
           },
         ],

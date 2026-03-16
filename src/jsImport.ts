@@ -24,10 +24,7 @@ export const jsImport = ({ rules, settings }: ImportOptions = {}): Config[] =>
           },
         ],
 
-        "import-x/consistent-type-specifier-style": [
-          "error",
-          "prefer-top-level",
-        ],
+        "import-x/consistent-type-specifier-style": ["error", "prefer-top-level"],
         "import-x/first": "error",
         "import-x/newline-after-import": "error",
         "import-x/no-commonjs": "error",
@@ -41,14 +38,7 @@ export const jsImport = ({ rules, settings }: ImportOptions = {}): Config[] =>
               order: "asc",
               orderImportKind: "asc",
             },
-            groups: [
-              "builtin",
-              "external",
-              "internal",
-              ["parent", "sibling"],
-              "index",
-              "object",
-            ],
+            groups: ["builtin", "external", "internal", ["parent", "sibling"], "index", "object"],
             "newlines-between": "always",
           },
         ],

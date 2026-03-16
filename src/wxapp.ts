@@ -11,11 +11,7 @@ export interface WXAppOptions {
   wxs?: Rules;
 }
 
-export const wxapp = ({
-  folder = "app",
-  ts,
-  wxs,
-}: WXAppOptions = {}): Config[] =>
+export const wxapp = ({ folder = "app", ts, wxs }: WXAppOptions = {}): Config[] =>
   defineConfig(
     {
       name: "wxapp/ts-rules",

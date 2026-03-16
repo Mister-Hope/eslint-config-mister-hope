@@ -11,10 +11,7 @@ export const comment = (overrides?: Rules): Config[] =>
     ...rest,
     rules: {
       ...rules,
-      "@eslint-community/eslint-comments/disable-enable-pair": [
-        "error",
-        { allowWholeFile: true },
-      ],
+      "@eslint-community/eslint-comments/disable-enable-pair": ["error", { allowWholeFile: true }],
       ...overrides,
     },
   });

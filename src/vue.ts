@@ -83,13 +83,7 @@ export const vue = ({ all, sfc }: VueOptions = {}): Config[] =>
         "vue/define-macros-order": [
           "error",
           {
-            order: [
-              "defineOptions",
-              "defineModel",
-              "defineProps",
-              "defineEmits",
-              "defineSlots",
-            ],
+            order: ["defineOptions", "defineModel", "defineProps", "defineEmits", "defineSlots"],
             defineExposeLast: true,
           },
         ],

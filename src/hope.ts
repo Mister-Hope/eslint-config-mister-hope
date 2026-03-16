@@ -75,19 +75,12 @@ export const hope = (
   const configs: Config[] = [ignores(options.ignores)];
 
   if (options.js !== false) configs.push(...js(getOptions(options.js)));
-  if (options.jsImport !== false)
-    configs.push(...jsImport(getOptions(options.jsImport)));
+  if (options.jsImport !== false) configs.push(...jsImport(getOptions(options.jsImport)));
   if (options.ts !== false) configs.push(...ts(getOptions(options.ts)));
-  if (options.tsImport !== false)
-    configs.push(...tsImport(getOptions(options.tsImport)));
-  if (options.vitest !== false)
-    configs.push(...vitest(getOptions(options.vitest)));
-  if (options.comment !== false)
-    configs.push(...comment(getOptions(options.comment)));
-  if (options.wxapp)
-    configs.push(
-      ...wxapp(typeof options.wxapp === "object" ? options.wxapp : {}),
-    );
+  if (options.tsImport !== false) configs.push(...tsImport(getOptions(options.tsImport)));
+  if (options.vitest !== false) configs.push(...vitest(getOptions(options.vitest)));
+  if (options.comment !== false) configs.push(...comment(getOptions(options.comment)));
+  if (options.wxapp) configs.push(...wxapp(typeof options.wxapp === "object" ? options.wxapp : {}));
 
   configs.push({
     languageOptions: {
@@ -98,9 +91,7 @@ export const hope = (
               parser: tsParser,
               tsconfigDirName: import.meta.dirname,
               // enable projectService for typescript-eslint if project is not defined
-              ...(languageOptions.parserOptions?.project
-                ? {}
-                : { projectService: true }),
+              ...(languageOptions.parserOptions?.project ? {} : { projectService: true }),
             }
           : {}),
         ...languageOptions.parserOptions,

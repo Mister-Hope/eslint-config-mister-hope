@@ -10,10 +10,7 @@ export const vitest = (overrides?: Rules): Config[] =>
     {
       ...rest,
       name: "hope/vitest/rules",
-      files: [
-        "**/*.{spec,test}.{js,jsx,ts,tsx}",
-        "**/*.{spec,test}-d.{js,jsx,ts,tsx}",
-      ],
+      files: ["**/*.{spec,test}.{js,jsx,ts,tsx}", "**/*.{spec,test}-d.{js,jsx,ts,tsx}"],
       settings: {
         vitest: {
           typecheck: true,
