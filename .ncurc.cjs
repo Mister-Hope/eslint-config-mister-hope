@@ -1,6 +1,4 @@
-const { defineConfig } = require("npm-check-updates");
-
-module.exports = defineConfig({
+module.exports = {
   peer: true,
   upgrade: true,
   timeout: 360000,
@@ -9,4 +7,4 @@ module.exports = defineConfig({
 
     return "latest";
   },
-});
+};
