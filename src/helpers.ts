@@ -14,5 +14,6 @@ export interface ImportOptions {
 export type Rules = Exclude<Config["rules"], undefined>;
 export type BaseOptions = Rules | boolean;
 
-export { defineConfig, Config } from "eslint/config";
+export type { Config } from "eslint/config";
+export { defineConfig } from "eslint/config";
 export { default as globals } from "globals";
