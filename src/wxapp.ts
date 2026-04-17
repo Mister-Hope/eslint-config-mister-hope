@@ -3,9 +3,7 @@ import { defineConfig } from "./helpers.js";
 import { tsConfigs } from "./ts.js";
 
 export interface WXAppOptions {
-  /**
-   * @default 'app'
-   */
+  /** @default "app" */
   folder?: string;
   ts?: Rules;
   wxs?: Rules;

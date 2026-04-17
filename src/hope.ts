@@ -20,44 +20,28 @@ export interface HopeOptions {
   ignores?: IgnoresOptions;
   languageOptions?: LanguageOptions;
 
-  /**
-   * @default true
-   */
+  /** @default true */
   comment?: BaseOptions;
 
-  /**
-   * @default true
-   */
+  /** @default true */
   js?: BaseOptions;
 
-  /**
-   * @default true
-   */
+  /** @default true */
   jsImport?: ImportOptions | boolean;
 
-  /**
-   * @default true
-   */
+  /** @default true */
   ts?: BaseOptions;
 
-  /**
-   * @default true
-   */
+  /** @default true */
   tsImport?: ImportOptions | boolean;
 
-  /**
-   * @default true
-   */
+  /** @default true */
   prettier?: boolean;
 
-  /**
-   * @default true
-   */
+  /** @default true */
   vitest?: BaseOptions;
 
-  /**
-   * @default false
-   */
+  /** @default false */
   wxapp?: WXAppOptions | boolean;
 }
 

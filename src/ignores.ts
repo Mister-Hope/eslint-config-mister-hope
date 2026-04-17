@@ -1,8 +1,6 @@
 import type { Config, IgnoresOptions } from "./helpers.js";
 
-/**
- * Ignores configuration for eslint.
- */
+/** Ignores configuration for eslint. */
 export const ignores = (ignores: IgnoresOptions = []): Config => ({
   name: "hope/ignores",
   ignores: [
