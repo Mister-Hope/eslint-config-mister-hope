@@ -10,8 +10,7 @@ export const resolvableExtensions = [...tsExtensions, ".js", ".jsx", ".cjs", ".m
 
 export const tsImport = ({ rules, settings }: ImportOptions = {}): Config[] =>
   defineConfig(
-    // FIXME: eslint-plugin-import-x should satisfy eslint config type
-    flatConfigs.typescript as Config[],
+    flatConfigs.typescript,
     {
       name: "hope/ts-import/config",
 

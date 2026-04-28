@@ -5,9 +5,7 @@ import { defineConfig } from "./helpers.js";
 
 export const jsImport = ({ rules, settings }: ImportOptions = {}): Config[] =>
   defineConfig(
-    // FIXME: eslint-plugin-import-x should satisfy eslint config type
-    flatConfigs.recommended as Config[],
-
+    flatConfigs.recommended,
     {
       name: "hope/js-import/config",
       files: ["**/*.{js,cjs,mjs,jsx}"],

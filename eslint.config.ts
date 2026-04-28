@@ -5,7 +5,7 @@ export default hope(
     languageOptions: {
       parserOptions: {
         projectService: {
-          allowDefaultProject: [".ncurc.cjs"],
+          allowDefaultProject: [".ncurc.js"],
         },
       },
     },
