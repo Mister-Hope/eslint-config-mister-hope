@@ -2,11 +2,14 @@ allowBuilds:
   unrs-resolver: true
 
 configDependencies:
-  pacquet: "^0.2.9"
+  pacquet: "^0.11.10"
 
 enableGlobalVirtualStore: true
 
-trustPolicy: no-downgrade
+minimumReleaseAgeExclude:
+  - "@oxfmt/*"
+  - "@oxlint/*"
+  - oxfmt
+  - oxlint
 
-trustPolicyExclude:
-  - tinyexec@1.2.2
+trustPolicy: no-downgrade
