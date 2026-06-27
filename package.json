@@ -51,8 +51,8 @@
     "typescript-eslint": "^8.61.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "21.0.2",
-    "@commitlint/config-conventional": "21.0.2",
+    "@commitlint/cli": "21.1.0",
+    "@commitlint/config-conventional": "21.1.0",
     "@mr-hope/tsconfig": "0.0.4",
     "@types/node": "24.13.2",
     "husky": "9.1.7",
