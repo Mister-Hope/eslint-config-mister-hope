@@ -2,7 +2,7 @@ allowBuilds:
   unrs-resolver: true
 
 configDependencies:
-  pacquet: "^0.11.10"
+  pacquet: ^0.11.12
 
 enableGlobalVirtualStore: true
 
@@ -11,5 +11,13 @@ minimumReleaseAgeExclude:
   - "@oxlint/*"
   - oxfmt
   - oxlint
+
+packageExtensions:
+  conventional-changelog-preset-loader:
+    peerDependencies:
+      conventional-changelog-conventionalcommits: ^10.0.0
+    peerDependenciesMeta:
+      "conventional-changelog-core":
+        optional: true
 
 trustPolicy: no-downgrade
