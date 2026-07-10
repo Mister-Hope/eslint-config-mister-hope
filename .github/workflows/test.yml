@@ -36,7 +36,7 @@ jobs:
         run: pnpm ci
 
       - name: Build project
-        run: pnpm build
+        run: pnpm run build
 
       - name: Linter test
-        run: pnpm lint
+        run: pnpm run lint
