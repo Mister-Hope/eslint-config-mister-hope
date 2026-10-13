@@ -1,13 +1,7 @@
+virtualStoreType: global
+
 allowBuilds:
   unrs-resolver: true
-
-enableGlobalVirtualStore: true
-
-minimumReleaseAgeExclude:
-  - "@oxfmt/*"
-  - "@oxlint/*"
-  - oxfmt
-  - oxlint
 
 packageExtensions:
   conventional-changelog-preset-loader:
@@ -17,4 +11,10 @@ packageExtensions:
       "conventional-changelog-core":
         optional: true
 
+minimumReleaseAgeExclude:
+  - "@oxfmt/*"
+  - oxfmt
+minimumReleaseAgeExcludePrune: true
 trustPolicy: no-downgrade
+trustPolicyIgnoreAfter: 720
+trustPolicyExcludePrune: true

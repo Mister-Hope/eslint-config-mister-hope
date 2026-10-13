@@ -47,9 +47,9 @@ export interface HopeOptions {
 
 const getOptions = <T>(
   option?: T,
-): T extends boolean ? Record<never, never> : Exclude<T, boolean> =>
+): T extends boolean ? Record<string, never> : Exclude<T, boolean> =>
   (typeof option === "object" ? option : {}) as T extends boolean
-    ? Record<never, never>
+    ? Record<string, never>
     : Exclude<T, boolean>;
 
 export const hope = (
